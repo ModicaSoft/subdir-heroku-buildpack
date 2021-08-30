@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+COMMAND="$(git diff HEAD^ HEAD -- ./backend)"
+
 echo "Subdir buildpack"
+#echo $COMMAND
+echo ${#COMMAND}
+if [[ ${#COMMAND} -gt 0 ]] ; then
+    echo "CUMBIASTEP..."
+    exit 0
+else
+    echo "SKIPPING BITCH..."
+    exit 1
+fi
+
 exit 0
